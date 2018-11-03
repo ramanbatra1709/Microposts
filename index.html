@@ -9,6 +9,28 @@
   <title>Microposts</title>
 </head>
 <body>
+  <nav class="navbar navbar-dark bg-primary mb-3">
+    <div class="container">
+      <a href="#" class="navbar-brand">Microposts</a>
+    </div>
+  </nav>
+  <div class="container postsContainer">
+    <div class="card card-body card-form">
+      <h1>Say something</h1>
+      <p class="lead">What's on your mind?</p>
+      <div class="form-group">
+        <input type="text" class="form-control" id="title" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="body" placeholder="Body"></textarea>
+      </div>
+      <input type="hidden" id="id" value="">
+      <button class="post-submit btn btn-primary btn-block">Post</button>
+      <span class="form-end"></span>
+    </div>
+    <div id="posts"></div>
+  </div>
+  <footer class="mt-5 p-3 text-center bg-light">Microposts</footer>
   <script src="build/app.bundle.js"></script>
 </body>
 </html>
