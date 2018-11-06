@@ -27,6 +27,24 @@ class UI    {
         });
         this.posts.innerHTML = outputHTML;
     }
+    showAlert(msg, className) {
+        this.clearAlert();
+        const div = document.createElement('div');
+        div.className = className;
+        div.appendChild(document.createTextNode(msg));
+        document.querySelector('.postsContainer').insertBefore(div, document.querySelector('#posts'));
+        setTimeout(() => this.clearAlert(), 3000);
+    }
+    clearAlert() {
+        const currentAlert = document.querySelector('.alert');
+        if (currentAlert)   {
+            currentAlert.remove();
+        }
+    }
+    clearFields()   {
+        this.titleInput.value = '';
+        this.bodyInput.value = '';
+    }
 }
 
 export const ui = new UI();
