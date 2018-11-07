@@ -42,8 +42,34 @@ class UI    {
         }
     }
     clearFields()   {
+        this.idInput.value = '';
         this.titleInput.value = '';
         this.bodyInput.value = '';
+    }
+    fillFields(data)    {
+        this.idInput.value = data.id;
+        this.titleInput.value = data.title;
+        this.bodyInput.value = data.body;
+        this.changeFormState('edit');        
+    }
+    changeFormState(state)  {
+        if (state === 'edit')   {
+            this.postSubmit.textContent = 'Edit post';
+            this.postSubmit.className = 'post-submit btn btn-block btn-warning';
+            
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'post-cancel btn btn-light btn-block';
+            cancelBtn.appendChild(document.createTextNode('Cancel'));
+            document.querySelector('.card-form').insertBefore(cancelBtn, document.querySelector('.form-end'));
+        }
+        else    {
+            this.postSubmit.textContent = 'Post';
+            this.postSubmit.className = 'post-submit btn btn-block btn-primary';
+            if (document.querySelector('.post-cancel')) {
+                document.querySelector('.post-cancel').remove();
+            }
+            this.clearFields();
+        }
     }
 }
 
